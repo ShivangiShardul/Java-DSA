@@ -24,16 +24,16 @@ class SearchInStrings {
         return false;
     }
 
-    static boolean search1(String str,char target){
-        if(str.length() == 0){
-            return false;
-        }
-
-        for(char ch : str.toCharArray()){
-            if (ch == target){
-                return true;
-            }
-        }
-        return false;
-    }
+//    static boolean search1(String str,char target){
+//        if(str.length() == 0){
+//            return false;
+//        }
+//
+//        for(char ch : str.toCharArray()){
+//            if (ch == target){
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
 }

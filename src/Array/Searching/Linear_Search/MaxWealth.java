@@ -4,10 +4,10 @@ package Array.Searching.Linear_Search;
 
 public class MaxWealth {
     public static void main(String[] args) {
-        int[][] accounts = {
-                {1, 2, 3},
-                {3, 2, 1}
-        };
+//        int[][] accounts = {
+//                {1, 2, 3},
+//                {3, 2, 1}
+//        };
 
         int[][] accounts1 = {
                 {1, 2, 3, 4},
