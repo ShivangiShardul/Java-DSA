@@ -1,4 +1,4 @@
-package Queue;
+package Queue.Implementation;
 
 public class DynamicQueue extends CircularQueue{
     public DynamicQueue() {

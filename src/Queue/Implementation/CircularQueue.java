@@ -1,25 +1,27 @@
-package Queue;
+package Queue.Implementation;
 
-public class CustomQueue {
+public class CircularQueue {
     protected int[] data;
     private static final int DEFAULTSIZE = 10;
 
-    int end = 0;
+    protected int end = 0;
+    protected int front = 0;
+    private int size = 0;
 
-    public CustomQueue() {
+    public CircularQueue() {
         this(DEFAULTSIZE);
     }
 
-    public CustomQueue(int size) {
+    public CircularQueue(int size) {
         this.data = new int[size];
     }
 
     public boolean isFull() {
-        return end == data.length;
+        return size == data.length;
     }
 
     public boolean isEmpty() {
-        return end == 0;
+        return size == 0;
     }
 
     public boolean insert(int item) {
@@ -29,6 +31,8 @@ public class CustomQueue {
         }
 
         data[end++] = item;
+        end = end % data.length;
+        size++;
         return true;
     }
 
@@ -37,12 +41,9 @@ public class CustomQueue {
             throw  new QueueException("Queue is Empty");
         }
 
-        int removed = data[0];
-
-        for (int i = 1; i < end; i++) {
-            data[i-1] = data[i];
-        }
-        end--;
+        int removed = data[front++];
+        front = front % data.length;
+        size--;
         return removed;
     }
 
@@ -50,13 +51,17 @@ public class CustomQueue {
         if (isEmpty()){
             throw  new QueueException("Queue is Empty");
         }
-        return data[0];
+        return data[front];
     }
 
     public void display(){
-        for (int i = 0; i < end; i++) {
-            System.out.print(data[i] + " ");
-        }
+        int i = front;
+        do {
+            System.out.print(data[i] + " -> ");
+            i++;
+            i %= data.length;
+        } while (i!=end);
         System.out.println("End");
     }
+
 }
